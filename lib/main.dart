@@ -3,8 +3,11 @@ import 'package:chat_bot_frontend/features/sendChat/domain/entities/chat.dart';
 import 'package:chat_bot_frontend/features/sendChat/domain/repositories/chat_repository.dart';
 import 'package:chat_bot_frontend/features/sendChat/domain/usecases/chat_crud_use_case.dart';
 import 'package:chat_bot_frontend/features/sendChat/presentation/bloc/chat/chat_bloc.dart';
+import 'package:chat_bot_frontend/features/sendChat/presentation/bloc/lista_contacto/lista_contacto_bloc.dart';
 import 'package:chat_bot_frontend/features/sendChat/presentation/bloc/listchat/listchat_bloc.dart';
 import 'package:chat_bot_frontend/features/sendChat/presentation/pages/HomeScreen.dart';
+import 'package:chat_bot_frontend/features/sendChat/presentation/pages/SendMessage.dart';
+import 'package:chat_bot_frontend/features/sendChat/presentation/pages/initialScreen.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,9 +47,17 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
             create: (context) =>
-                ListchatBloc(ChatCrudUseCase(sl<ChatRepository>())))
+                ListchatBloc(ChatCrudUseCase(sl<ChatRepository>()))),
+        BlocProvider(
+          create: (context) => ListaContactoBloc(),
+        )
       ],
       child: FluentApp(
+        routes: {
+          '/': (context) => HomeScreen(),
+          '/message': (context) => SendMessage(),
+          '/initial': (context) => InintialScreen()
+        },
         title: 'Flutter Demo',
         theme: FluentThemeData(),
         debugShowCheckedModeBanner: false,
@@ -54,7 +65,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ), */
-        home: const HomeScreen(),
+        initialRoute: '/',
       ),
     );
   }

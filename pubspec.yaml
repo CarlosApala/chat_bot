@@ -46,6 +46,9 @@ dependencies:
   url_launcher: ^6.3.1
   video_player_win: ^3.0.0
   video_player: ^2.9.2
+  http: ^1.2.2
+  whatsapp_chatbot: ^1.0.0
+  whatsapp_bot_flutter: ^2.1.1
 
 dev_dependencies:
   flutter_test:

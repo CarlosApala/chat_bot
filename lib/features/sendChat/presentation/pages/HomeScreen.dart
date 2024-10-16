@@ -1,4 +1,5 @@
 import 'package:chat_bot_frontend/features/sendChat/presentation/pages/SendMessage.dart';
+import 'package:chat_bot_frontend/features/sendChat/presentation/pages/initialScreen.dart';
 import 'package:chat_bot_frontend/features/sendChat/presentation/pages/video/videoApp.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     PaneItem(
       icon: const Icon(FluentIcons.home),
       title: const Text('Home'),
-      body: VideoApp(),
+      body: InintialScreen(),
     ),
     PaneItemSeparator(),
     PaneItemExpander(
@@ -39,16 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SendMessage(),
       items: [],
     ),
-    /*  */
-    PaneItem(
-      icon: const Icon(FluentIcons.disable_updates),
-      title: const Text('Reportes'),
-      body: Container(),
-    ),
   ];
 
   @override
   Widget build(BuildContext context) {
+    print("que esta pasando");
     return NavigationView(
       appBar: NavigationAppBar(
           automaticallyImplyLeading: false,
